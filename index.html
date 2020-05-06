@@ -10,12 +10,10 @@
     <link href="dist/sp-bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="shortcut icon" href="images/favicon.png?v=2">
     <title> Share Your Sound </title>
-    <!-- Custom styles for this template -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+   
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 </head>
   <body>
     <div class="navbar navbar-default" role="navigation">
@@ -36,14 +34,11 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div id='top' class="jumbotron">
       <div class="container-fluid" id="jumbo-dialog">
-        <h1 id='attitle' >Find Your Sound</h1>
-        <p  class="lead">  The best DJ is everybody.</p>
+        <h1 id='attitle' > Share Your Sound </h1>
+        <p  class="lead"> Find what you might like based off the playlist of other Spotify users!</p>
         <p id='ttext'>
-            The Playlist Miner aggregrates the top tracks from
-            the most popular public playlists on Spotify that match your
-            search criteria.  Looking for the best <i>workout</i> tracks?
-            Enter the term <i>workout</i> and we'll find
-            the tracks that have appeared most frequently in workout playlists.
+            Find Your Sound takes a keyword and populates playlist based off any word, then will search for songs related to that keyword <i>lit </i> tracks?
+            Enter the term <i>lit </i> and Share Your Sound will find lit songs!
         </p>
         <div class='intro-form' id='login-form'>
             <p> To get started, login with your Spotify credentials.
@@ -213,9 +208,7 @@ function postSpotify(url, json, callback) {
             callback(true, r);
         },
         error: function(r) {
-            // 2XX status codes are good, but some have no
-            // response data which triggers the error handler
-            // convert it to goodness.
+        
             if (r.status >= 200 && r.status < 300) {
                 callback(true, r);
             } else {
