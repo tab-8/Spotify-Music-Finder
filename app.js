@@ -18,7 +18,7 @@ https://developer.spotify.com/documentation/general/guides/app-settings/
 */
 var client_id = '8f8d13ef76d34d9d80a3f23ca6b64646'; // Your client id
 var client_secret = '7c3a3d4b98ef4b63b2ec26346a154076'; // Your secret
-var redirect_uri = 'http://209.97.159.185/ShareYourSound'; // Your redirect uri
+var redirect_uri = 'http://209.97.159.185:3000/spotify_callback'; // Your redirect uri
 
 /* End of important section ^.^ */
 
@@ -26,7 +26,7 @@ var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
 var cors = require('cors');
 var cookieParser = require('cookie-parser');
-//var utils = require('./spotify_utils')
+var utils = require('./spotify_utils')
 
 var stateKey = 'spotify_auth_state';
 var app = express();
@@ -39,7 +39,7 @@ app.set('view engine', 'ejs');
 
 // The index page of our website will be the Login with Spotify page.
 app.get('/', function(req, res) {
-  res.render('index.html', {})
+  res.render('login.ejs', {})
 })
 
 // This is the API endpoint we call when the user clicks on the "Login with Spotify" button.
@@ -94,6 +94,7 @@ app.get('/spotify_callback', function(req, res) {
     // This makes the post request we've defined above.
     // It's literally the same thing as $.ajax() or http.request()
     // but using a different library.
+    console.log("test")
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
         // The request for a token was successful, and the token
